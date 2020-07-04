@@ -25,17 +25,13 @@ public class Car {
     }
 
     public double fuelLost(int km){
-        return FUEL_LOST_PER_HUNDRED_KM / 100 * km;
+        return min(TANK_VOLUME, (FUEL_LOST_PER_HUNDRED_KM / 100 * km));
     }
 
     public void setRemainingFuel(int km){
         tankBalance -= fuelLost(km);
         if(tankBalance < 0)
             tankBalance = 0;
-    }
-
-    public double countHowMuchRefuelAfterRunKm(int km){
-        return min(TANK_VOLUME, fuelLost(km));
     }
 
     public double fuelCost(int fuelCost){
