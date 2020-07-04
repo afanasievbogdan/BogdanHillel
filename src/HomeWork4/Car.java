@@ -1,9 +1,10 @@
 package HomeWork4;
 
+import static java.lang.Math.min;
+
 public class Car {
     private final int TANK_VOLUME = 40;
     private final double FUEL_LOST_PER_HUNDRED_KM = 9;
-    private final int FUEL_COST = 25;
 
     private double tankBalance;
 
@@ -29,10 +30,16 @@ public class Car {
 
     public void setRemainingFuel(int km){
         tankBalance -= fuelLost(km);
+        if(tankBalance < 0)
+            tankBalance = 0;
     }
 
-    public double fuelCost(){
-        return calculateFillQuantity() * FUEL_COST;
+    public double countHowMuchRefuelAfterRunKm(int km){
+        return min(TANK_VOLUME, fuelLost(km));
+    }
+
+    public double fuelCost(int fuelCost){
+        return calculateFillQuantity() * fuelCost;
     }
 
 }
@@ -42,6 +49,7 @@ class Main{
     public static void main(String[] args) {
 
         Car Nissan = new Car();
+        int fuelCost = 25;
         double totalCost = 0;
         double totalFillQuantity = 0;
         Nissan.setTankBalance(20);
@@ -52,9 +60,9 @@ class Main{
 
         System.out.printf("В баке осталось %.1f литров топлива\n", Nissan.getTankBalance());
 
-        System.out.printf("Было принято решение запрвить полный бак. Заправили %.1f литров, стоимостью %.1f\n", Nissan.calculateFillQuantity(), Nissan.fuelCost());
+        System.out.printf("Было принято решение запрвить полный бак. Заправили %.1f литров, стоимостью %.1f\n", Nissan.calculateFillQuantity(), Nissan.fuelCost(fuelCost));
         totalFillQuantity += Nissan.calculateFillQuantity();
-        totalCost += Nissan.fuelCost();
+        totalCost += Nissan.fuelCost(fuelCost);
         Nissan.fillTank();
         System.out.println("Теперь в баке " + Nissan.getTankBalance());
 
@@ -65,9 +73,9 @@ class Main{
 
         System.out.printf("В баке осталось %.1f литров топлива\n", Nissan.getTankBalance());
 
-        System.out.printf("Было принято решение запрвить полный бак. Заправили %.1f литров, стоимостью %.1f\n", Nissan.calculateFillQuantity(), Nissan.fuelCost());
+        System.out.printf("Было принято решение запрвить полный бак. Заправили %.1f литров, стоимостью %.1f\n", Nissan.calculateFillQuantity(), Nissan.fuelCost(fuelCost));
         totalFillQuantity += Nissan.calculateFillQuantity();
-        totalCost += Nissan.fuelCost();
+        totalCost += Nissan.fuelCost(fuelCost);
         Nissan.fillTank();
         System.out.println("Теперь в баке " + Nissan.getTankBalance());
 
@@ -89,6 +97,7 @@ class Main{
 //        остаток в баке
 //        расход топлива на 100 км
 //        создать методы:
+//
 //
 //        залить полный бак с учетом объема остатка
 //        определить остаток топлива по преодолении N км
