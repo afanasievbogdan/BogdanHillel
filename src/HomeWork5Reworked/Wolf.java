@@ -1,4 +1,4 @@
-package HomeWork5;
+package HomeWork5Reworked;
 
 public class Wolf extends Wild{
 
@@ -8,6 +8,6 @@ public class Wolf extends Wild{
 
     @Override
     public void makeVoice() {
-        super.makeVoice();
+        System.out.print("\nHello, i am a wild animal. And i am angry.");
     }
 }

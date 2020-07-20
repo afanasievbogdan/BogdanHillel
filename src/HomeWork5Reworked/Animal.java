@@ -1,6 +1,6 @@
-package HomeWork5;
+package HomeWork5Reworked;
 
-public abstract class Animal {
+public abstract class Animal implements MakeVoiceAnimal {
     int id;
     int age;
     int weight;
@@ -11,9 +11,5 @@ public abstract class Animal {
         this.age = age;
         this.weight = weight;
         this.color = color;
-    }
-
-    public void makeVoice(){
-        System.out.print("\nHello, ");
     }
 }

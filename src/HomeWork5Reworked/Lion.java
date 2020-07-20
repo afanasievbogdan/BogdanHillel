@@ -1,4 +1,4 @@
-package HomeWork5;
+package HomeWork5Reworked;
 
 public class Lion extends Wild{
     public Lion(int id, int age, int weight, String color, boolean isPredator) {
@@ -7,7 +7,7 @@ public class Lion extends Wild{
 
     @Override
     public void makeVoice() {
-        super.makeVoice();
+        System.out.print("\nHello, i am a wild animal. And i am angry.\n");
     }
 
 }

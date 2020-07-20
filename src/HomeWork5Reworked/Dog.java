@@ -1,4 +1,4 @@
-package HomeWork5;
+package HomeWork5Reworked;
 
 public class Dog extends Pet{
     public Dog(int id, int age, int weight, String color, String name, boolean isVaccinated) {
@@ -7,7 +7,6 @@ public class Dog extends Pet{
 
     @Override
     public void makeVoice() {
-        super.makeVoice();
-        System.out.println("Woof");
+        System.out.println("Hello, my name is " + getName() + ". Woof");
     }
 }

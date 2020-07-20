@@ -1,4 +1,4 @@
-package HomeWork5;
+package HomeWork5Reworked;
 
 public class Hamster extends Pet{
     public Hamster(int id, int age, int weight, String color, String name, boolean isVaccinated) {
@@ -7,7 +7,7 @@ public class Hamster extends Pet{
 
     @Override
     public void makeVoice() {
-        super.makeVoice();
+        System.out.println("Hello, my name is " + getName());
     }
 
 }

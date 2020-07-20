@@ -1,4 +1,4 @@
-package HomeWork5;
+package HomeWork5Reworked;
 
 public class Cat extends Pet{
 
@@ -8,7 +8,6 @@ public class Cat extends Pet{
 
     @Override
     public void makeVoice() {
-        super.makeVoice();
-        System.out.println("Meow");
+        System.out.println("Hello, my name is " + getName() + ". Meow");
     }
 }

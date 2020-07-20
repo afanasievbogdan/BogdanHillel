@@ -1,4 +1,4 @@
-package HomeWork5;
+package HomeWork5Reworked;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,6 +20,7 @@ public class Main {
 
         Guided_dog guided_dog = new Guided_dog(2, 5, 7,"Red", "Joy", true, true);
 
+        System.out.println();
         cat.makeVoice();
         dog.makeVoice();
         fish.makeVoice();

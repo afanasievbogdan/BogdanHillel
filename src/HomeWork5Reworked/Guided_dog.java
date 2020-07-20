@@ -1,4 +1,4 @@
-package HomeWork5;
+package HomeWork5Reworked;
 
 public class Guided_dog extends Dog{
     boolean isTrained;
@@ -15,7 +15,7 @@ public class Guided_dog extends Dog{
 
     @Override
     public void makeVoice() {
-        super.makeVoice();
+        System.out.println("\nHello, my name is " + getName() + ". Woof");
         if(isTrained)
             System.out.println("I can take you home!");
     }

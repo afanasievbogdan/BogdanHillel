@@ -1,6 +1,6 @@
-package HomeWork5;
+package HomeWork5Reworked;
 
-public abstract class Pet extends Animal{
+public abstract class Pet extends Animal implements MakeVoiceAnimal{
     String name;
     boolean isVaccinated;
 
@@ -10,9 +10,7 @@ public abstract class Pet extends Animal{
         this.isVaccinated = isVaccinated;
     }
 
-    @Override
-    public void makeVoice() {
-        super.makeVoice();
-        System.out.println("my name is " + name);
+    public String getName() {
+        return name;
     }
 }
