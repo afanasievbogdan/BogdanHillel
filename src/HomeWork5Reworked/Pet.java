@@ -1,6 +1,6 @@
 package HomeWork5Reworked;
 
-public abstract class Pet extends Animal implements MakeVoiceAnimal{
+public abstract class Pet extends Animal implements MakeVoiceInterface {
     String name;
     boolean isVaccinated;
 

@@ -1,6 +1,6 @@
 package HomeWork5Reworked;
 
-public abstract class Animal implements MakeVoiceAnimal {
+public abstract class Animal implements MakeVoiceInterface {
     int id;
     int age;
     int weight;

@@ -1,6 +1,6 @@
 package HomeWork5Reworked;
 
-public abstract class Wild extends Animal implements MakeVoiceAnimal{
+public abstract class Wild extends Animal implements MakeVoiceInterface {
     boolean isPredator;
 
     public Wild(int id, int age, int weight, String color, boolean isPredator) {
