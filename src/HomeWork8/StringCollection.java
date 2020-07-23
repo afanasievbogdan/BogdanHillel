@@ -15,19 +15,19 @@ public class StringCollection implements Collection_Interface{
         strings = new String[numOfStrings];
     }
 
+    private void collectionCopy(){
+        String[] buffer = new String[strings.length];
+        System.arraycopy(strings, 0, buffer, 0, strings.length);
+        strings = new String[strings.length + 1];
+        System.arraycopy(buffer, 0, strings, 0, buffer.length);
+    }
+
     public void print(){
         System.out.println();
         for (String string : strings) {
             if(string != null)
                 System.out.println(string);
         }
-    }
-
-    private void collectionCopy(){
-        String[] buffer = new String[strings.length];
-        System.arraycopy(strings, 0, buffer, 0, strings.length);
-        strings = new String[strings.length + 1];
-        System.arraycopy(buffer, 0, strings, 0, buffer.length);
     }
 
     @Override
