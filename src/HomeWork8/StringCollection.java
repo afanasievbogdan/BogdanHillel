@@ -61,7 +61,7 @@ public class StringCollection implements Collection_Interface{
         }
 
         String s = (String) o;
-        if (index >= strings.length){
+        while (index >= strings.length){
             collectionCopy();
         }
         strings[index] = s;
