@@ -23,7 +23,7 @@ public class StringCollection {
     public void print(){
         System.out.println();
         for (String string : strings) {
-            //if(string != null)
+            if(string != null)
             System.out.println(string);
         }
     }
