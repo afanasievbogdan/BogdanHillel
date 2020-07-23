@@ -3,61 +3,68 @@ package HomeWork7;
 public class StringCollection {
 
     private String[] strings;
-    private int currentID;
+    private int current;
 
     public StringCollection(int numOfStrings){
         strings = new String[numOfStrings];
     }
 
+    private void collectionCopy(){
+        String[] buffer = new String[strings.length];
+        for (int i = 0; i < strings.length; i++) {
+            buffer[i] = strings[i];
+        }
+        strings = new String[strings.length + 1];
+        for (int i = 0; i < buffer.length; i++) {
+            strings[i] = buffer[i];
+        }
+    }
+
     public void print(){
         System.out.println();
         for (String string : strings) {
+            //if(string != null)
             System.out.println(string);
         }
     }
 
     public void addElement(String s){
-//        if (strings[currentID] != null){
-//            System.out.println("This element is not empty. You must remove it first");
-//            return;
-//        }
-        if (currentID >= strings.length){
-            String[] buffer = new String[strings.length];
-            for (int i = 0; i < strings.length; i++) {
-                buffer[i] = strings[i];
-            }
-            strings = new String[strings.length * 2];
-            for (int i = 0; i < buffer.length; i++) {
-                strings[i] = buffer[i];
-            }
+        if (current >= strings.length){
+            collectionCopy();
         }
 
-        strings[currentID] = s;
-        currentID++;
+        strings[current] = s;
+        current++;
     }
 
     public void addElementByID(String s, int id){
-        if (id >= strings.length){
-            String[] buffer = new String[strings.length];
-            for (int i = 0; i < strings.length; i++) {
-                buffer[i] = strings[i];
-            }
-            while (strings.length < id) {
-                strings = new String[strings.length * 2];
-            }
-            for (int i = 0; i < buffer.length; i++) {
-                strings[i] = buffer[i];
-            }
+        while (id >= strings.length){
+            collectionCopy();
         }
         strings[id] = s;
     }
 
-    public void deleteElement(){
-        strings[currentID-1] = null;
+    public void deleteElementByValue(String value){
+        String[] buffer = new String[strings.length];
+        for (int i = 0; i < strings.length; i++) {
+            if (value.equals(strings[i])) {
+                strings[i] = null;
+                System.arraycopy(strings, 0, buffer, 0, strings.length);
+                System.arraycopy(buffer, 0, strings, 0, i);
+                if (strings.length - 1 - i >= 0) System.arraycopy(buffer, i + 1, strings, i, strings.length - 1 - i);
+                current--;
+            }
+        }
+
     }
 
     public void deleteElementByID(int id){
+        String[] buffer = new String[strings.length];
         strings[id] = null;
+        System.arraycopy(strings, 0, buffer, 0, strings.length);
+        System.arraycopy(buffer, 0, strings, 0, id);
+        if (strings.length - 1 - id >= 0) System.arraycopy(buffer, id + 1, strings, id, strings.length - 1 - id);
+        current--;
     }
 
     public void get(int index){
@@ -74,11 +81,13 @@ public class StringCollection {
         StringCollection stringCollection = new StringCollection(3);
         stringCollection.addElement("q");
         stringCollection.addElement("q");
+        stringCollection.addElement("w");
         stringCollection.addElement("q");
-        stringCollection.addElement("q");
+        stringCollection.deleteElementByValue("w");
+
         stringCollection.addElementByID("q", 7);
         stringCollection.addElementByID("q", 8);
-        stringCollection.deleteElement();
+
         stringCollection.deleteElementByID(7);
         stringCollection.print();
         stringCollection.get(2);
