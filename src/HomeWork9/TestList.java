@@ -8,8 +8,10 @@ public class TestList {
     public static void printList(MyLinkedList linkedList){
         System.out.println("\n==================");
         Node currentNode = linkedList.getHead();
-        if (currentNode == null)
+        if (currentNode == null){
+            System.out.println("==================\n");
             return;
+        }
         do {
             System.out.println(currentNode.getElement());
             currentNode = currentNode.getNext();

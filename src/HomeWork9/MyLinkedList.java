@@ -158,6 +158,15 @@ public class MyLinkedList implements CustomCollectionInterface{
 
     @Override
     public boolean clear() {
+
+        Node currentNode = head;
+        while (currentNode != null){
+            Node nextNode = currentNode.getNext();
+            currentNode.setPrev(null);
+            currentNode.setNext(null);
+            currentNode = nextNode;
+        }
+
         tail = null;
         head = null;
         counter = 0;
