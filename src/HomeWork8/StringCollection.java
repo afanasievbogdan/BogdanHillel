@@ -64,6 +64,8 @@ public class StringCollection implements Collection_Interface{
         while (index >= strings.length){
             collectionCopy();
         }
+        if (strings[index] == null)
+            current++;
         strings[index] = s;
         return true;
     }
@@ -143,16 +145,12 @@ public class StringCollection implements Collection_Interface{
     @Override
     public boolean clear() {
         Arrays.fill(strings, null);
+        current = 0;
         return true;
     }
 
     @Override
     public int size() {
-        int size = 0;
-        for (String string : strings) {
-            if (string != null)
-                size++;
-        }
-        return size;
+        return current;
     }
 }
